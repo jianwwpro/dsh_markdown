@@ -44,3 +44,14 @@ Both surfaces use the same Host route, path fences, size cap, and version checks
 - 写文件遵循当前部署的文件策略：只读模式会拒绝保存并禁用相关按钮。路径必须位于所选工作区内，且只允许 Markdown 扩展名；单个文件上限 2 MB。
 - 不提供重命名、删除、移动或格式化；预览中的图片一律不加载，只显示占位标记；只有 `http(s)`、`mailto` 和页内锚点会成为链接，其他目标按纯文本显示。
 - 页面只通过 `/api` 下一个仅限本机所有者会话访问的认证路由与 Host 通信，不会上传文件内容。
+
+## Development
+
+No build step: the package is plain ESM plus one browser module.
+
+```sh
+node tests/host.test.mjs
+node tests/client.test.mjs
+```
+
+Node 20 or newer is enough; the tests use only Node built-ins. Install the bundle into a DSH profile with **Plugins → Add plugin** pointed at this directory, or with the `plugin_manager` `install_bundle` action from a DSH session. The Host half publishes one authenticated exact Fetch route under `/api`; the browser half registers a main panel, a sidebar entry, and a right-Sidebar document viewer.
