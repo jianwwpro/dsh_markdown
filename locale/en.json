@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Markdown editor",
+    "description": "Browse the Markdown files of a workspace, edit them with a live preview, and save in place. Open it from the Markdown editor icon in the left sidebar. It also adds a \"Markdown edit\" viewer to right-Sidebar document tabs, beside Markdown, Code, and Plain text. Saves go through the deployment's file policy, so read-only mode refuses them; creating files only works inside registered workspace folders that already exist."
+  }
+}
